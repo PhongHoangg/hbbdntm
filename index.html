@@ -1,209 +1,383 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Happy Birthday Nguyễn Trà My!</title>
+
+  <style>
+
+    /* Global resets and body styling */
+
+    body, html {
+
+      margin: 0;
+
+      padding: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      font-family: 'Arial', sans-serif;
+
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      overflow: hidden;
+
+    }
+
+    /* Main container styling */
+
+    .container {
+
+      text-align: center;
+
+      padding: 20px;
+
+      background: rgba(255, 255, 255, 0.85);
+
+      border-radius: 10px;
+
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    }
+
+    h1 {
+
+      font-size: 3em;
+
+      margin-bottom: 0.5em;
+
+      color: #ff5e62;
+
+    }
+
+    p {
+
+      font-size: 1.5em;
+
+      color: #333;
+
+      margin: 0.5em 0;
+
+    }
+
+    /* Heart shape & beating animation */
+
+    .heart {
+
+      width: 100px;
+
+      height: 90px;
+
+      position: relative;
+
+      margin: 0 auto 20px;
+
+    }
+
+    .heart:before,
+
+    .heart:after {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+
+      left: 50px;
+
+      width: 50px;
+
+      height: 80px;
+
+      background: #ff5e62;
+
+      border-radius: 50px 50px 0 0;
+
+      transform: rotate(-45deg);
+
+      transform-origin: 0 100%;
+
+    }
+
+    .heart:after {
+
+      left: 0;
+
+      transform: rotate(45deg);
+
+      transform-origin: 100% 100%;
+
+    }
+
+    @keyframes heartbeat {
+
+      0%, 100% { transform: scale(1); }
+
+      25% { transform: scale(1.1); }
+
+      50% { transform: scale(1); }
+
+      75% { transform: scale(1.1); }
+
+    }
+
+    .heart {
+
+      animation: heartbeat 1.5s infinite;
+
+    }
+
+    /* Button styling */
+
+    .btn {
+
+      padding: 15px 30px;
+
+      background-color: #ff5e62;
+
+      color: #fff;
+
+      border: none;
+
+      border-radius: 5px;
+
+      font-size: 1.2em;
+
+      cursor: pointer;
+
+      margin-top: 20px;
+
+      transition: background-color 0.3s;
+
+    }
+
+    .btn:hover {
+
+      background-color: #ff3b3f;
+
+    }
+
+    /* Fullscreen canvas for confetti */
+
+    canvas {
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      pointer-events: none;
+
+    }
+
   </style>
+
 </head>
+
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Happy Birthday Nguyễn Trà My!&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/* Global resets and body styling */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body, html {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: 'Arial', sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>overflow: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/* Main container styling */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: rgba(255, 255, 255, 0.85);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h1 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 3em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 0.5em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #ff5e62;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>p {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.5em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #333;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0.5em 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/* Heart shape &amp; beating animation */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.heart {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 90px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0 auto 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.heart:before,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.heart:after {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>content: "";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: absolute;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>top: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>left: 50px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 50px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 80px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #ff5e62;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 50px 50px 0 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transform: rotate(-45deg);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transform-origin: 0 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.heart:after {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>left: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transform: rotate(45deg);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transform-origin: 100% 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@keyframes heartbeat {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>0%, 100% { transform: scale(1); }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>25% { transform: scale(1.1); }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>50% { transform: scale(1); }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>75% { transform: scale(1.1); }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.heart {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>animation: heartbeat 1.5s infinite;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/* Button styling */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 15px 30px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #ff5e62;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.2em;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transition: background-color 0.3s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.btn:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #ff3b3f;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>/* Fullscreen canvas for confetti */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>canvas {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: fixed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>top: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>left: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>pointer-events: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="heart"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Happy Birthday, Nguyễn Trà My!&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;You're 22 today, my love. May your day be filled with joy, laughter, and endless love.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="btn" onclick="startCelebration()"&gt;Celebrate!&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;canvas id="confettiCanvas"&gt;&lt;/canvas&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Set up the canvas for confetti</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const canvas = document.getElementById('confettiCanvas');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const ctx = canvas.getContext('2d');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let W = window.innerWidth;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let H = window.innerHeight;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>canvas.width = W;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>canvas.height = H;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>window.addEventListener('resize', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>W = window.innerWidth;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>H = window.innerHeight;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>canvas.width = W;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>canvas.height = H;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Create confetti particles</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const confettiCount = 150;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const confetti = [];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (let i = 0; i &lt; confettiCount; i++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>confetti.push({</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>x: Math.random() * W,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>y: Math.random() * H - H,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>r: Math.random() * 6 + 4,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>d: Math.random() * confettiCount,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>color: "hsl(" + Math.floor(Math.random() * 360) + ", 100%, 50%)",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>tilt: Math.floor(Math.random() * 10) - 10,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>tiltAngleIncremental: (Math.random() * 0.07) + 0.05,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>tiltAngle: 0</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Draw confetti particles</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function drawConfetti() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.clearRect(0, 0, W, H);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>confetti.forEach(p =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.beginPath();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.lineWidth = p.r;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.strokeStyle = p.color;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.moveTo(p.x + p.tilt + (p.r / 2), p.y);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.lineTo(p.x + p.tilt, p.y + p.tilt + (p.r / 2));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.stroke();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>updateConfetti();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Update confetti positions</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function updateConfetti() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>confetti.forEach(p =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>p.tiltAngle += p.tiltAngleIncremental;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>p.x += Math.sin(p.d);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>p.tilt = Math.sin(p.tiltAngle) * 15;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Reset particle when it goes off-screen</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (p.y &gt; H) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>p.y = -10;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>p.x = Math.random() * W;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let confettiInterval;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function startConfetti() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>confettiInterval = setInterval(drawConfetti, 20);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Stop the confetti after 5 seconds</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>setTimeout(stopConfetti, 5000);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function stopConfetti() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>clearInterval(confettiInterval);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.clearRect(0, 0, W, H);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Start celebration: trigger confetti and play music</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function startCelebration() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>startConfetti();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>playMusic();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Play a birthday tune (a sample royalty-free track)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function playMusic() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const audio = new Audio('https://www.bensound.com/bensound-music/bensound-hey.mp3');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>audio.play();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+  <div class="container">
+
+    <div class="heart"></div>
+
+    <h1>Happy Birthday, Nguyễn Trà My!</h1>
+
+    <p>You're 22 today, my love. May your day be filled with joy, laughter, and endless love.</p>
+
+    <button class="btn" onclick="startCelebration()">Celebrate!</button>
+
+  </div>
+
+  <canvas id="confettiCanvas"></canvas>
+
+  <script>
+
+    // Set up the canvas for confetti
+
+    const canvas = document.getElementById('confettiCanvas');
+
+    const ctx = canvas.getContext('2d');
+
+    let W = window.innerWidth;
+
+    let H = window.innerHeight;
+
+    canvas.width = W;
+
+    canvas.height = H;
+
+
+
+    window.addEventListener('resize', () => {
+
+      W = window.innerWidth;
+
+      H = window.innerHeight;
+
+      canvas.width = W;
+
+      canvas.height = H;
+
+    });
+
+
+
+    // Create confetti particles
+
+    const confettiCount = 150;
+
+    const confetti = [];
+
+
+
+    for (let i = 0; i < confettiCount; i++) {
+
+      confetti.push({
+
+        x: Math.random() * W,
+
+        y: Math.random() * H - H,
+
+        r: Math.random() * 6 + 4,
+
+        d: Math.random() * confettiCount,
+
+        color: "hsl(" + Math.floor(Math.random() * 360) + ", 100%, 50%)",
+
+        tilt: Math.floor(Math.random() * 10) - 10,
+
+        tiltAngleIncremental: (Math.random() * 0.07) + 0.05,
+
+        tiltAngle: 0
+
+      });
+
+    }
+
+
+
+    // Draw confetti particles
+
+    function drawConfetti() {
+
+      ctx.clearRect(0, 0, W, H);
+
+      confetti.forEach(p => {
+
+        ctx.beginPath();
+
+        ctx.lineWidth = p.r;
+
+        ctx.strokeStyle = p.color;
+
+        ctx.moveTo(p.x + p.tilt + (p.r / 2), p.y);
+
+        ctx.lineTo(p.x + p.tilt, p.y + p.tilt + (p.r / 2));
+
+        ctx.stroke();
+
+      });
+
+      updateConfetti();
+
+    }
+
+
+
+    // Update confetti positions
+
+    function updateConfetti() {
+
+      confetti.forEach(p => {
+
+        p.tiltAngle += p.tiltAngleIncremental;
+
+        p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+
+        p.x += Math.sin(p.d);
+
+        p.tilt = Math.sin(p.tiltAngle) * 15;
+
+
+
+        // Reset particle when it goes off-screen
+
+        if (p.y > H) {
+
+          p.y = -10;
+
+          p.x = Math.random() * W;
+
+        }
+
+      });
+
+    }
+
+
+
+    let confettiInterval;
+
+    function startConfetti() {
+
+      confettiInterval = setInterval(drawConfetti, 20);
+
+      // Stop the confetti after 5 seconds
+
+      setTimeout(stopConfetti, 5000);
+
+    }
+
+    function stopConfetti() {
+
+      clearInterval(confettiInterval);
+
+      ctx.clearRect(0, 0, W, H);
+
+    }
+
+
+
+    // Start celebration: trigger confetti and play music
+
+    function startCelebration() {
+
+      startConfetti();
+
+      playMusic();
+
+    }
+
+
+
+    // Play a birthday tune (a sample royalty-free track)
+
+    function playMusic() {
+
+      const audio = new Audio('https://www.bensound.com/bensound-music/bensound-hey.mp3');
+
+      audio.play();
+
+    }
+
+  </script>
+
 </body>
+
 </html>
